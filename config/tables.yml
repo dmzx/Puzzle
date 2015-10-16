@@ -1,0 +1,2 @@
+parameters:
+    dmzx.puzzle.table.puzzle: %core.table_prefix%dm_puzzle

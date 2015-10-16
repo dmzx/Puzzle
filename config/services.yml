@@ -1,0 +1,30 @@
+imports:
+    - { resource: tables.yml }
+services:
+    dmzx.puzzle.listener:
+        class: dmzx\puzzle\event\listener
+        arguments:
+            - @template
+            - @controller.helper
+        tags:
+            - { name: event.listener }
+    dmzx.puzzle.controller:
+        class: dmzx\puzzle\controller\puzzle
+        arguments:
+            - @template
+            - @user
+            - @dbal.conn
+            - @config
+            - @controller.helper
+            - %dmzx.puzzle.table.puzzle%
+            - %core.root_path%
+    dmzx.puzzle.admin.controller:
+        class: dmzx\puzzle\controller\admin_controller
+        arguments:
+            - @config
+            - @template
+            - @user
+            - @dbal.conn
+            - @request
+            - @pagination
+            - %dmzx.puzzle.table.puzzle%                

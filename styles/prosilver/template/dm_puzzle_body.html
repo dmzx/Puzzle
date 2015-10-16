@@ -1,0 +1,79 @@
+<!-- INCLUDE overall_header.html -->
+
+<h2>{TITLE}</h2>
+<p>
+<div id="message">
+	<div class="inner">
+		{TITLE_EXPLAIN}
+	</div>
+</div>
+</p>
+
+<div class="forabg">
+	<div class="inner">
+	<ul class="topiclist">
+		<li class="header">
+			<dl class="icon">
+				<dt>{TITLE}</dt>
+			</dl>
+		</li>
+	</ul>
+
+	<ul class="topiclist forums">
+		<li>
+			<!-- IF S_NO_PUZZLES -->
+			<dl>
+				<dd style="width: 98%; text-align: center;">
+					<span style="font-size: 1.4em;"><br /><br />{L_PUZZLE_NO_PUZZLES}<br /><br /></span>
+				</dd>
+			</dl>
+			<!-- ELSE -->
+			<dl>
+				<dd style="width: 98%; text-align: center;">
+					<ul>
+						<li>
+							<br />
+							<b><span style="font-size: 1.4em;">{NAME}</span></b>
+							<br /><br />
+							<u>{L_PUZZLE_DESCRIPTION}{L_COLON}</u><br /><br />
+							{DESCRIPTION}
+							<br />
+						</li>
+						<li>
+							<br />
+							<!-- IF S_PUZZLE_DEFAULT -->
+								<div style="outline: 0px solid silver"><img id="image" onload="snapfit.add(this,{callback: function() {alert('{PUZZLE_SOLVED}');}, aborder:{AREABORDER}, aimage:{AREAIMAGE}, polygon:{POLYGON}, space:20, mixed:{MIXED}, simple:{SIMPLE}});" src="{IMAGE_NAME}" width="{WIDTH}" height="{HEIGHT}" border="0" alt="" /></div>
+							<!-- ELSE -->
+								<div style="outline: 1px solid silver"><img id="image" onload="snapfit.add(this,{callback: function() {alert('{PUZZLE_SOLVED}');}, aborder:true, aimage:true, polygon:true, space:20});" src="{IMAGE_NAME}" width="{WIDTH}" height="{HEIGHT}" border="0" alt="" /></div>
+							<!-- ENDIF -->
+							<!-- IF S_PUZZLE_DEFAULT -->
+							<strong>{L_PUZZLE_LEVEL}</strong><br /><br />
+							<select id="level" size="1" onchange="snapfit.reset(document.getElementById('image'),parseInt(this.options[this.selectedIndex].value));">
+							<option value="0">{L_PUZZLE_LEVEL_1}</option>
+							<option value="1">{L_PUZZLE_LEVEL_2}</option>
+							<option value="2">{L_PUZZLE_LEVEL_3}</option>
+							<option value="3"selected="selected">{L_PUZZLE_LEVEL_4}</option>
+							<option value="4">{L_PUZZLE_LEVEL_5}</option>
+							<option value="5">{L_PUZZLE_LEVEL_6}</option>
+							<option value="6">{L_PUZZLE_LEVEL_7}</option>
+							</select>
+							<!-- ENDIF -->
+							<br /><br />
+							<button type="button" onclick="snapfit.admix(document.getElementById('image'));">{L_PUZZLE_MIX}</button>
+							<!-- IF S_SOLVE_BUTTON --><button type="button" onclick="snapfit.solve(document.getElementById('image'));">{L_PUZZLE_SOLVE}</button><!-- ENDIF --><br /><br />
+							<small><b>{L_PUZZLE_MOVE}</b>{L_COLON} {L_PUZZLE_MOVE_EXP}<br /><b>{L_PUZZLE_ROTATE}</b>{L_COLON} {L_PUZZLE_ROTATE_EXP}<br /><b>{L_PUZZLE_FLIP_Y}</b>{L_COLON} {L_PUZZLE_FLIP_Y_EXP}<br /><b>{L_PUZZLE_FLIP_X}</b>{L_COLON} {L_PUZZLE_FLIP_X_EXP}</small>
+							<br /><br />
+						</li>
+					</ul>
+				</dd>
+			</dl>
+			<!-- ENDIF -->
+		</li>
+	</ul>
+	</div>
+</div>
+<br />
+<center>
+<div class="copyright">{COPY_OWN}<br />{OWN_COPY}<br /></div>
+</center>
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,71 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_PUZZLE_CONFIG}</h1>
+
+<p>{L_PUZZLE_CONFIG_EXP}</p>
+
+<form id="acp_puzzle_config" method="post" action="{U_ACTION}">
+
+<fieldset>
+	<legend>{L_PUZZLE_CONFIG}</legend>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_PAGE}{L_COLON}</label><br />{L_PUZZLE_CONFIG_PAGE_EXP}</dt>
+		<dd><input name="puzzle_acp_page" type="text" id="puzzle_acp_page" size="10" maxlength="3" value="{ACP_PAGE}" /></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_DEFAULT}{L_COLON}</label><br />{L_PUZZLE_CONFIG_DEFAULT_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_default" value="1"<!-- IF DEFAULT --> id="puzzle_default" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_default" value="0"<!-- IF not DEFAULT --> id="puzzle_default" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_FIXED}{L_COLON}</label><br />{L_PUZZLE_CONFIG_FIXED_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_fixed" value="1"<!-- IF FIXED --> id="puzzle_fixed" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_fixed" value="0"<!-- IF not FIXED --> id="puzzle_fixed" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_FIXED_LEVEL}{L_COLON}</label><br />{L_PUZZLE_CONFIG_FIXED_LEVEL_EXP}</dt>
+		<dd><input name="puzzle_fixed_level" type="text" id="puzzle_fixed_level" size="10" maxlength="1" value="{FIXED_LEVEL}" /></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_MIXED}{L_COLON}</label><br />{L_PUZZLE_CONFIG_MIXED_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_mixed" value="1"<!-- IF MIXED --> id="puzzle_mixed" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_mixed" value="0"<!-- IF not MIXED --> id="puzzle_mixed" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_SIMPLE}{L_COLON}</label><br />{L_PUZZLE_CONFIG_SIMPLE_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_simple" value="1"<!-- IF SIMPLE --> id="puzzle_simple" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_simple" value="0"<!-- IF not SIMPLE --> id="puzzle_simple" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_POLYGON}{L_COLON}</label><br />{L_PUZZLE_CONFIG_POLYGON_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_polygon" value="1"<!-- IF POLYGON --> id="puzzle_polygon" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_polygon" value="0"<!-- IF not POLYGON --> id="puzzle_polygon" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_AREAIMAGE}{L_COLON}</label><br />{L_PUZZLE_CONFIG_AREAIMAGE_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_areaimage" value="1"<!-- IF AREAIMAGE --> id="puzzle_areaimage" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_areaimage" value="0"<!-- IF not AREAIMAGE --> id="puzzle_areaimage" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_AREABORDER}{L_COLON}</label><br />{L_PUZZLE_CONFIG_AREABORDER_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_areaborder" value="1"<!-- IF AREABORDER --> id="puzzle_areaborder" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_areaborder" value="0"<!-- IF not AREABORDER --> id="puzzle_areaborder" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	<dl>
+		<dt><label>{L_PUZZLE_CONFIG_SOLVE_BUTTON}{L_COLON}</label><br />{L_PUZZLE_CONFIG_SOLVE_BUTTON_EXP}</dt>
+		<dd><label><input type="radio" class="radio" name="puzzle_solve_button" value="1"<!-- IF SOLVE_BUTTON --> id="puzzle_solve_button" checked="checked" <!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="puzzle_solve_button" value="0"<!-- IF not SOLVE_BUTTON --> id="puzzle_solve_button" checked="checked" <!-- ENDIF --> /> {L_NO}</label></dd>
+	</dl>
+	{S_HIDDEN_FIELDS}
+
+<p class="submit-buttons">
+	<input class="button1" type="submit" id="acp_puzzle_config" name="acp_puzzle_config" value="{L_SUBMIT}" />&nbsp;
+	<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	{S_FORM_TOKEN}
+</p>
+</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

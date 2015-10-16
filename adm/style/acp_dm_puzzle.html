@@ -1,0 +1,117 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<!-- IF S_EDIT_PUZZLE -->
+
+	<a href="{U_BACK}" style="float: {S_CONTENT_FLOW_END};"><b>&laquo; {L_BACK}</b></a>
+
+	<h1>{L_PUZZLE_EDIT_PUZZLE}</h1>
+
+	<p>{L_PUZZLE_EDIT_EXPLAIN}</p>
+
+	<form id="acp_puzzle" method="post" action="{U_ACTION}">
+
+	<fieldset>
+		<legend>{L_PUZZLE_TITLE}</legend>
+		<dl>
+			<dt><label>{L_PUZZLE_EDIT_NAME}:</label><br />{L_PUZZLE_EDIT_NAME_EXP}</dt>
+			<dd><input name="name" type="text" id="name" size="30" maxlength="255" value="{NAME}" /></dd>
+		</dl>
+		<dl>
+			<dt><label>{L_PUZZLE_EDIT_DESCRIPTION}:</label><br />{L_PUZZLE_EDIT_DESCRIPTION_EXP}</dt>
+			<dd><textarea id="description" name="description" rows="5" cols="40" maxlength="255">{DESCRIPTION}</textarea></dd>
+		</dl>
+		<dl>
+			<dt><label>{L_PUZZLE_EDIT_IMAGE_NAME}:</label><br />{L_PUZZLE_EDIT_IMAGE_NAME_EXP}</dt>
+			<dd><input name="image_name" type="text" id="image_name" size="30" maxlength="255" value="{IMAGE_NAME}" /></dd>
+		</dl>
+		{S_HIDDEN_FIELDS}
+
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="save" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		{S_FORM_TOKEN}
+	</p>
+	</fieldset>
+	</form>
+
+<!-- ELSE -->
+
+	<h1>{L_PUZZLE_TITLE}</h1>
+
+	<p>{L_PUZZLE_TITLE_EXPLAIN}</p>
+
+	<form id="acp_puzzle" method="post" action="{U_ACTION}">
+
+	<fieldset class="tabulated">
+	<legend>{L_PUZZLE_TITLE}</legend>
+	<p class="quick">
+		{S_HIDDEN_FIELDS}
+		<input class="button2" name="add" type="submit" value="{L_PUZZLE_NEW_PUZZLE}" />
+	</p>
+
+<div class="action-bar top">
+	<!-- IF .pagination or TOTAL_PUZZLES -->
+	<div class="pagination">
+		{TOTAL_PUZZLES}
+		<!-- IF .pagination -->
+			<!-- INCLUDE pagination.html -->
+		<!-- ELSE -->
+			&bull; {PAGE_NUMBER}
+		<!-- ENDIF -->
+	</div>
+	<!-- ENDIF -->
+</div>
+
+	<table cellspacing="1">
+	<thead>
+	<tr>
+		<th>{L_PUZZLE_NAME}</th>
+		<th>{L_PUZZLE_DESCRIPTION}</th>
+		<th>{L_PUZZLE_IMAGE_NAME}</th>
+		<th>{L_ACTION}</th>
+	</tr>
+	</thead>
+	<tbody>
+	<!-- BEGIN puzzle -->
+		<!-- IF puzzle.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+		<td style="text-align: left;">{puzzle.NAME}</td>
+		<td style="text-align: left;">{puzzle.DESCRIPTION}</td>
+		<td style="text-align: left;">{puzzle.IMAGE_NAME}</td>
+		<td>&nbsp;<a href="{puzzle.U_EDIT}">{ICON_EDIT}</a>&nbsp;&nbsp;<a href="{puzzle.U_DELETE}">{ICON_DELETE}</a>&nbsp;</td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr class="row3">
+		<td colspan="4">{L_PUZZLE_NO_ITEMS}</td>
+	</tr>
+	<!-- END puzzle -->
+	</tbody>
+	</table>
+
+<div class="action-bar bottom">
+	<!-- IF .pagination or TOTAL_PUZZLES -->
+	<div class="pagination">
+		{TOTAL_PUZZLES}
+		<!-- IF .pagination -->
+			<!-- INCLUDE pagination.html -->
+		<!-- ELSE -->
+			&bull; {PAGE_NUMBER}
+		<!-- ENDIF -->
+	</div>
+	<!-- ENDIF -->
+</div>
+
+	<form action="{S_PUZZLE_ACTION}" method="post">
+	<fieldset class="display-options">
+		<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;
+		<input class="button2" type="submit" name="sort" value="{L_GO}" />
+	</fieldset>
+	</form>
+
+	{S_FORM_TOKEN}
+	</fieldset>
+	</form>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->
