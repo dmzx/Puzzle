@@ -10,10 +10,10 @@
 namespace dmzx\puzzle\acp;
 
 class puzzle_info
- {
+{
 	function module()
 	{
-		 return array(
+		return array(
 			'filename'	=> '\dmzx\puzzle\acp\puzzle_module',
 			'title'		=> 'PUZZLE_TITLE',
 			'modes'		=> array(

@@ -17,7 +17,7 @@ class puzzle_schema extends \phpbb\db\migration\migration
 			'add_tables'	=> array(
 				$this->table_prefix . 'dm_puzzle'	=> array(
 					'COLUMNS' => array(
-						'id'				=> array('UINT:11', NULL, 'auto_increment'),
+						'id'				=> array('UINT:11', null, 'auto_increment'),
 						'name'				=> array('VCHAR', ''),
 						'description'		=> array('MTEXT_UNI', ''),
 						'image_name'		=> array('VCHAR', ''),

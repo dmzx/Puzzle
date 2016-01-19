@@ -11,27 +11,25 @@ namespace dmzx\puzzle\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
-	* Event listener
-*/
 class listener implements EventSubscriberInterface
 {
 	/** @var \phpbb\template\template */
 	protected $template;
+
 	/** @var \phpbb\controller\helper */
-	protected $controller_helper;
+	protected $helper;
 
 	/**
 	* Constructor
 	*
 	* @param \phpbb\template\template			$template
-	* @param \phpbb\controller\helper			$controller_helper
+	* @param \phpbb\controller\helper			$helper
 	*
 	*/
-	public function __construct(\phpbb\template\template $template, \phpbb\controller\helper $controller_helper)
+	public function __construct(\phpbb\template\template $template, \phpbb\controller\helper $helper)
 	{
 		$this->template				= $template;
-		$this->controller_helper 	= $controller_helper;
+		$this->helper 				= $helper;
 	}
 
 	static public function getSubscribedEvents()
@@ -55,7 +53,7 @@ class listener implements EventSubscriberInterface
 	public function page_header($event)
 	{
 		$this->template->assign_vars(array(
-			'U_DM_PUZZLE'	=> $this->controller_helper->route('dmzx_puzzle_controller'),
+			'U_DM_PUZZLE'	=> $this->helper->route('dmzx_puzzle_controller'),
 		));
 	}
 }

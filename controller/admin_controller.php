@@ -18,16 +18,24 @@ class admin_controller
 {
 	/** @var \phpbb\config\config */
 	protected $config;
+
 	/** @var \phpbb\template\template */
 	protected $template;
+
 	/** @var \phpbb\user */
 	protected $user;
+
 	/** @var \phpbb\db\driver\driver_interface */
 	protected $db;
+
 	/** @var \phpbb\request\request */
 	protected $request;
+
 	/** @var \phpbb\pagination */
 	protected $pagination;
+
+	/** @var \phpbb\log\log */
+	protected $log;
 
 	protected $puzzle_table;
 
@@ -40,18 +48,20 @@ class admin_controller
 	* @param \phpbb\db\driver\driver_interface	$db
 	* @param \phpbb\request\request				$request
 	* @param \phpbb\pagination					$pagination
+	* @param \phpbb\log\log						$log
 	* @param									$puzzle_table
 	*
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, \phpbb\pagination $pagination, $puzzle_table)
+	public function __construct(\phpbb\config\config $config, \phpbb\template\template $template, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, \phpbb\pagination $pagination, \phpbb\log\log $log, $puzzle_table)
 	{
-		$this->config = $config;
-		$this->template = $template;
-		$this->user = $user;
-		$this->db = $db;
-		$this->request = $request;
-		$this->pagination = $pagination;
-		$this->puzzle_table = $puzzle_table;
+		$this->config 			= $config;
+		$this->template 		= $template;
+		$this->user 			= $user;
+		$this->db 				= $db;
+		$this->request 			= $request;
+		$this->pagination 		= $pagination;
+		$this->log				= $log;
+		$this->puzzle_table 	= $puzzle_table;
 	}
 
 	/**
@@ -152,7 +162,7 @@ class admin_controller
 			}
 
 			// Add logs
-			add_log('admin', 'LOG_PUZZLE_SETTINGS');
+			$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_PUZZLE_SETTINGS');
 			trigger_error($this->user->lang['PUZZLE_CONFIG_UPDATED'] . adm_back_link($this->u_action));
 
 			// Clear the cache
