@@ -53,7 +53,7 @@ before_install:
   - composer self-update
 
 install:
-  - composer install --no-interaction --prefer-source
+  - composer install --dev --prefer-source
   - travis/prepare-phpbb.sh $EXTNAME $PHPBB_BRANCH
   - cd ../../phpBB3
   - travis/prepare-extension.sh $EXTNAME $PHPBB_BRANCH
