@@ -9,8 +9,6 @@
 
 namespace dmzx\puzzle\controller;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
 /**
 * Admin controller
 */
