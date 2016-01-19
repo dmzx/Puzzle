@@ -111,13 +111,6 @@ class puzzle
 			));
 		}
 
-		// Check, if the image exists
-		if (!file_exists($image_name))
-		{
-			$redirect_url = $this->helper->route('dmzx_puzzle_controller');
-			trigger_error(sprintf($this->user->lang['PUZZLE_IMAGE_MISSING'], $puzzle['image_name']) . sprintf('<br /><br />' . $this->user->lang['PUZZLE_BACKLINK'],'<a href="' . $redirect_url . '">', '</a>'));
-		}
-
 		// send variables to the template
 		$this->template->assign_vars(array(
 			'TITLE'				=> $this->user->lang['PUZZLE_TITLE'],
